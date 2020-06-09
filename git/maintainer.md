@@ -19,7 +19,7 @@ e deve ser a fonte da verdade.
 git init
 ```
 
-> Ferramenta para gerar projeto, como o `reate-react-app`
+> Ferramentas para gerar projeto, como o `reate-react-app`
 > e o `rails new` fazem esse passo automaticamente
 
 ### Adicionando a branch de desenvolvimento
@@ -106,13 +106,154 @@ Esse formato pode ser alterado para corresponder com as
 necessidades do time. Ex.: trocar o tipo pelo apelido do
 desedesenvolvedor.
 
-> Use o [plugin do
-> git](https://github.com/git/git/blob/master/contrib/completion/git-completion.bash)
+> Use o [plugin do git](https://github.com/git/git/blob/master/contrib/completion/git-completion.bash)
 > para bash/zsh para melhorar o tab-completion dentro do
 > git.
 
 ### Mensagens de Request
 
-## Revisando Código
+## Revisando Código (Code Review)
 
-### Não tenha medo de dizer não
+O objetivo do code review é garantir o a qualidade da base
+de códigos. Ambos GitLab e o GitHub oferecem ferramentas
+para facilitar o code review.
+
+### Porque fazer code review?
+
+- Reduz a quantidades de bugs que são introduzidos na sua base de código.
+- Melhora o seu modelo de como o projeto está estruturado.
+- Cira a oportunidade de aprender coisas novas.
+
+### Merge Request/Pull Request
+
+Para submeter um código para revisão, um desenvolvedor deve
+criar um novo MR/PR da sua branch de tópico para a branche
+de desenvolvimento.
+
+A partir daí, o mantenedor e os desenvolvedores podem
+visualizar e revisar as modificações que o merge irá causar
+na aba de mudanças no request.
+
+### Aprovando mudanças (Merge)
+
+Aprovar mudanças significa juntar uma branch de tópico à sua
+branch de desenvolvimento. Para fazer isso, basta utilizar
+a interface web do GitLab/GitHub, ou fazer localmente usando
+a interface de comandos do git.
+
+```sh
+git fetch origin
+git checkout -b feat origin/feat
+git merge --no-ff feat
+git push origin master
+```
+
+Usar a interface do git pode ser a única maneira de resolver
+conflitos.
+
+### Estratégias alternativas
+
+#### Fast-forward
+
+Omitir o argumento `--no-ff` permite que um fast-forward
+aconteça, quando possível. Nesse caso, as mudanças da branch
+fonte são aplicadas na branch destino sem gerar um merge
+commit.
+
+#### Squash
+
+Usar o argumento `--squash`, ou selecionar a opção de Squash
+nas interfaces web, permite que um squash seja feito. Nesse
+caso, todos os commits de alteração da branch fonte são
+juntados em um commit só, que será aplicado na branch de
+destino.
+
+#### Rebase
+
+Usar o commando `rebase` do git no lugar de `merge` permite
+que um rebase aconteça. Nesse caso, todas as modificações da
+branch fonte são aplicadas uma a uma na branch destino. Essa
+estratégia deve ser usada com cuidado, já que modificam
+a história. Por esse motivo, um rebase requer um push
+forçado, pra forçar a repositório remoto a aceitar uma
+história diferente.
+
+Conflitos podem ocorrer durante a aplicação de mudanças.
+Nesse caso, deve-se corrigir os conflitos para continuar
+o processor.
+
+### Rejeitando mudanças
+
+Algumas vezes mudanças de baixa qualidade, com código ruim
+ou mal formatado podem aparecer. Nesses casos é importante
+comunicar com o desenvolvedor que são necessárias alterções.
+
+Se a requisição não chegar ao nível necessário de qualidade
+do projeto, deve-se recusar a requisição.
+
+### Dicas de Code-Review
+
+- Seja educado nos feedbacks
+
+> ❌ Esse código está errado
+>
+> ❌ Você deve fazer da seguinte forma
+
+> ✅ Notei que esse efeito pode acontecer com o seu cógido
+>
+> ✅ O que você acha de fazer da seguinte forma
+
+- Deixe comentários sobre o que os desenvolvedores fizeram bem para incentivar e aumentar a moral.
+- Apresente possíveis soluções quando achar que pode haver um
+  problema.
+
+## Desfazendo Coisas
+
+https://github.com/k88hudson/git-flight-rules
+
+Git pode ser complicado às vezes, então é fácil se enganar
+com algum comando e coisas inesperadas acontecerem. Pra sua
+sorte, se algo foi commitado, você provavelmente não perdeu
+seu trabalho.
+
+### Push na master/develop
+
+Se um desenvolvedor deu um push na master/develop
+acidentalmente, é simples resolver.
+
+```
+git revert hash_do_commit
+```
+
+Isso vai gerar um novo commit desfazendo as mudanças do
+commit. Se vários commits foram adicionados em sequência,
+basta usar
+
+```
+git revert primeiro_commit^..ultimo_commit
+```
+
+Se você quer manter a história limpa, sem o commit
+acidental, você pode resetar para o commit mais recente
+antes do commit acidental
+
+```
+git reset --hard commit_bom
+git push --force-with-lease
+```
+
+### Desfazendo um merge/rebase
+
+Antes de fazer operações perigosas como merge/rebase, o git
+salva o ponteiro HEAD em uma variável chamada ORIG_HEAD, pra
+ficar fácil recuperar o estado anterior do seu projeto.
+
+```
+git reset --hard ORIG_HEAD
+```
+
+Também é possível desfazer um merge que ocorreu nas
+interfaces web. Visualizando o request que ocasionou
+o merge, as interfaces web te dão a oportunidade de realizar
+um `revert` para desfazer as modificações de forma segura.
+
