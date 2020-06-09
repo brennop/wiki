@@ -1,3 +1,4 @@
 - [Ambiente de Desenvolvimento](ambiente.md)
 - [Git](git/)
   - [Cheatsheet](git/cheatsheet.md)
+  - [Guia do Mantenedor](git/maintainer.md)
