@@ -112,6 +112,31 @@ desedesenvolvedor.
 
 ### Mensagens de Request
 
+O GitHub e o GitLab permitem definir templates para seus
+merge requests/pull requests. Para adicionar um, basta
+seguir as instruções da plataforma específica.
+
+- [GitLab](https://docs.gitlab.com/ee/user/project/description_templates.html#creating-merge-request-templates)
+- [GitHub](https://help.github.com/en/github/building-a-strong-community/configuring-issue-templates-for-your-repository)
+
+#### Exemplo de Template
+
+```markdown
+## Porque esse merge é necessário
+
+Descreva com algumas palavras o motivo desse merge request.
+
+## O que esse merge faz
+
+- Implementa essa feature
+- Melhora a implementação daquela interface
+- Altera o estilo dessas componentes
+
+## Card relacionado
+
+link para o card no trello
+```
+
 ## Revisando Código (Code Review)
 
 O objetivo do code review é garantir o a qualidade da base
@@ -241,6 +266,9 @@ antes do commit acidental
 git reset --hard commit_bom
 git push --force-with-lease
 ```
+
+> Considere setar branches de master/develop como protegidas
+> para prevenir que desenvolvedores façam push
 
 ### Desfazendo um merge/rebase
 
