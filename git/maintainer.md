@@ -75,7 +75,7 @@ Alguns padrões adicionais:
 ```
 feat: implementa a navbar
 fix: corrige o bug navbar muito pequena
-config: remove o link hardcoded da api
+tarefa: remove o link hardcoded da api
 estilo: aumenta o tamanho da navbar
 refactor: altera o uso de contexto no app
 ```
@@ -84,6 +84,25 @@ refactor: altera o uso de contexto no app
 
 > Usar emojis no lugar de palavras para o tipo pode salvar
 > alguns caracteres
+
+#### Template de mensagem de commit
+
+```
+# <tipo>: (Se aplicado esse commit...) <resumo>
+
+# Explique o porquê do commit (opicional)
+
+# Deixe links para qualuer conteúdo relevante (artigos, ticket)
+
+# --- Fim do Commit ---
+# Tipo pode ser um de
+#   feat
+#   fix
+#   tarefa
+#   estilo
+#   refactor
+# --------
+```
 
 ### Padrões de branches
 
@@ -285,3 +304,52 @@ interfaces web. Visualizando o request que ocasionou
 o merge, as interfaces web te dão a oportunidade de realizar
 um `revert` para desfazer as modificações de forma segura.
 
+## Hooks
+
+O Git permite que você defina hooks, que são ações
+disparadas toda vez que algo importante acontece, como
+quando um commit é feito. Para facilitar o gerenciamento
+desses hooks, é possível usar o [Husky](https://github.com/typicode/husky).
+
+### Instalando o Husky
+
+```bash
+yarn add -D husky
+```
+
+> É importante estar em um projeto Node
+
+### Instalando o lint-staged
+
+O [lint-staged](https://github.com/okonet/lint-staged)
+permite rodar comandos, como linters, nos arquivos que foram
+adicionados a staging area.
+
+```bash
+yarn add -D lint-staged
+```
+
+### Configurando os hooks
+
+Os hooks podem ser configurados no `package.json`.
+
+```json
+"husky": {
+  "hooks": {
+    "pre-commit": "lint-staged"
+  }
+},
+
+"lint-staged": {
+  "*.js": [
+    "yarn test --findRelatedTests --watch=false --bail",
+    "prettier --write",
+    "git add"
+  ]
+}
+```
+
+> Exemplo: roda os testes do Jest e executa o prettier pra
+> formatar o código
+>
+> Esses pacotes precisam estar instalados no projeto
