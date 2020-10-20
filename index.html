@@ -1,23 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-</head>
-<body>
-  <div id="app"></div>
-  <script>
-    window.$docsify = {
-      name: 'wiki',
-      loadSidebar: 'summary.md',
-    subMaxLevel: 2
-    }
-  </script>
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-  <script src="https://unpkg.com/docsify-copy-code@2"></script>
-</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Wiki do Brennim</title>
+    <link rel="stylesheet" href="https://unpkg.com/docute@4/dist/docute.css" />
+  </head>
+  <body>
+    <div id="docute"></div>
+    <script src="https://unpkg.com/docute@4/dist/docute.js"></script>
+    <script>
+      new Docute({
+        target: "#docute",
+        title: "Wiki do Brennim",
+        layout: "narrow",
+        sidebar: [
+          {
+            title: "Ambiente de Desenvolvimento",
+            link: "/ambiente",
+          },
+          {
+            title: "Git",
+            children: [
+              {
+                title: "Guia do Usuário",
+                link: "/git/guia",
+              },
+              {
+                title: "Guia do Mantenedor",
+                link: "/git/maintainer",
+              },
+              {
+                title: "Cheatsheet",
+                link: "/git/cheatsheet",
+              },
+            ],
+          },
+          {
+            title: "React",
+            children: [
+              {
+                title: "Guia do Trainee",
+                link: "/react/trainee",
+              },
+            ],
+          },
+        ],
+      });
+    </script>
+  </body>
 </html>

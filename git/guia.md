@@ -8,47 +8,47 @@ Git é um sistema de controle de versionamento (VCS) criado por Linus Torvalds.
 
 ---
 
-# Instalação
+## Instalação
 
-## Linux
+### Linux
 
 Instale usando o gerenciador de pacotes da sua distribuição. Em distribuições baseados no Debian, use o `apt` para instalar.
 
 `sudo apt install git`
 
-## Windows
+### Windows
 
 A versão oficial do git para Windows está disponível em [https://git-scm.com/download/win](https://git-scm.com/download/win). É só baixar o arquivo e seguir os passos de instalação.
 
-## MacOS
+### MacOS
 
 Se o XCode já estiver instalado, o Git provavelmente também deve estar instalado. Para testar, abra um terminal e digite `git --version`
 
-# Configuração
+## Configuração
 
 O básico que você presica para usar o git é adicionar um nome e um email:
 
     $ git config --global user.name  "John Doe"
     $ git config --global user.email "johndoe@example.com"
 
-## Configurações adicionais
+### Configurações adicionais
 
-### Mudar o editor principal
+#### Mudar o editor principal
 
     git config --global core.editor "nano -w"
 
-### Salvar senha e usuário
+#### Salvar senha e usuário
 
     git config --global credential.helper store
 
-# Termos
+## Termos
 
 - **Working Tree**: estado atual do diretório de trabalho
 - **Staging Área**: arquivos marcados para o próximo commit
 
-# Uso
+## Uso
 
-## Getting started
+### Getting started
 
 - Inicializar um repositório
 
@@ -66,7 +66,7 @@ O básico que você presica para usar o git é adicionar um nome e um email:
 
         git clone https://url.do.repositório
 
-## Salvando mudanças
+### Salvando mudanças
 
 - Verificar o estado dos arquivos
 
@@ -98,7 +98,7 @@ O básico que você presica para usar o git é adicionar um nome e um email:
 
   _Dica_: use `git log --oneline` para obter um commit por linha
 
-## Revertendo mudanças
+### Revertendo mudanças
 
 - Desfazendo um `git add`
 
@@ -128,7 +128,7 @@ O básico que você presica para usar o git é adicionar um nome e um email:
 
   Com o hash do commit ou um shorthand do tipo HEAD@{0}, use `git reset id_do_commit` para retornar ao commit.
 
-# Como escrever uma mensagem de commit
+## Como escrever uma mensagem de commit
 
 [https://udacity.github.io/git-styleguide/index.html](https://udacity.github.io/git-styleguide/index.html)
 

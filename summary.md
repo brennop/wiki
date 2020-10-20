@@ -1,5 +1,0 @@
-- [Ambiente de Desenvolvimento](ambiente.md)
-- [Git](git/guia.md)
-  - [Cheatsheet](git/cheatsheet.md)
-  - [Guia do Mantenedor](git/maintainer.md)
-- [React](react/)
