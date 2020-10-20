@@ -1,10 +1,14 @@
 # Trainees das Galáxias
 
-React é um framework para desenvolvimento de aplicações web e nativas. Seu foco é em facilitar para o desenvolvedor criar interfaces interativas sem se preocupar com o código que orquestra essas interações.
+React é um framework para desenvolvimento de aplicações web e nativas. Seu foco
+é em facilitar para o desenvolvedor criar interfaces interativas sem se
+preocupar com o código que orquestra essas interações.
 
 ## JSX
 
-É uma sintaxe para o JavaScript que permite descrever a nossa interface junto da nossa lógica. Usando o JSX, podemos escrever _Elementos_, que podem ser tags HTML, dentro do nosso código JavaScript.
+É uma sintaxe para o JavaScript que permite descrever a nossa interface junto da
+nossa lógica. Usando o JSX, podemos escrever _Elementos_, que podem ser tags
+HTML, dentro do nosso código JavaScript.
 
 ```jsx
 const element = <h1>Olá Mundo</h1>;
@@ -23,17 +27,21 @@ const element = <h1>Olá, {name}</h1>; // <h1>Olá, Trainee</h1>
 
 ## Atributos
 
-Usando JSX podemos passar argumentos para nossos elementos, usando o nome do atributo e uma atribuição de valor.
+Usando JSX podemos passar argumentos para nossos elementos, usando o nome do
+atributo e uma atribuição de valor.
 
 ```jsx
 const link = <a href="https://pt-br.reactjs.org">Documentação do React</a>;
 ```
 
-> No React, atributos de elementos do DOM devem ser escritos com `camelCase`. Por exemplo, escreveríamos `tabIndex` ao invés de `tabindex` e `className` ao invés de `class`.
+> No React, atributos de elementos do DOM devem ser escritos com `camelCase`.
+> Por exemplo, escreveríamos `tabIndex` ao invés de `tabindex` e `className` ao
+> invés de `class`.
 
 ## Componentes
 
-São funções JavaScript que retornam [_elementos_](#jsx). Todo componente também é um elemento. Por convenção, componentes são escritos capitalizados.
+São funções JavaScript que retornam [_elementos_](#jsx). Todo componente também
+é um elemento. Por convenção, componentes são escritos capitalizados.
 
 ```jsx
 function Componente() {
@@ -41,7 +49,8 @@ function Componente() {
 }
 ```
 
-Para usar componentes que definimos, basta colocá-lo entre bicudinhos `<>`, com o mesmo nome da função que o define.
+Para usar componentes que definimos, basta colocá-lo entre bicudinhos `<>`, com
+o mesmo nome da função que o define.
 
 ```jsx
 function App() {
@@ -51,7 +60,9 @@ function App() {
 
 ## Props
 
-São atributos que passamos para um componentes. Os componentes recebem _props_ como primeiro argumento da função que os define. Esse argumento contém um objeto com todos os atributos passados ao elemento React.
+São atributos que passamos para um componentes. Os componentes recebem _props_
+como primeiro argumento da função que os define. Esse argumento contém um objeto
+com todos os atributos passados ao elemento React.
 
 ```jsx
 function BemVindo(props) {
@@ -59,7 +70,8 @@ function BemVindo(props) {
 }
 ```
 
-Para atribuir valor a instância de um componente, fazemos assim como passamos [atributos](#atributos) para elementos React.
+Para atribuir valor a instância de um componente, fazemos assim como passamos
+[atributos](#atributos) para elementos React.
 
 ```jsx
 function App() {
