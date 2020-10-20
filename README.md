@@ -3,7 +3,9 @@
 > Só conteúdo top
 
 - [Ambiente de Desenvolvimento](ambiente.md)
-- [Git](git/)
-  - [Cheatsheet](git/cheatsheet.md)
+- Git
+  - [Guia do Usuário](git/guia.md)
   - [Guia do Mantenedor](git/maintainer.md)
-- [React](react/)
+  - [Cheatsheet](git/cheatsheet.md)
+- React
+  - [Trainee das Gálaxias](react/trainee.md)
