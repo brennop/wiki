@@ -12,6 +12,15 @@ const element = <h1>Olá Mundo</h1>;
 
 ## Expressões
 
+Podemos inserir qualquer [expressão
+JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+válida dentro de chaves no JSX.
+
+```jsx
+const name = "Trainee";
+const element = <h1>Olá, {name}</h1>; // <h1>Olá, Trainee</h1>
+```
+
 ## Atributos
 
 Usando JSX podemos passar argumentos para nossos elementos, usando o nome do atributo e uma atribuição de valor.
@@ -66,7 +75,9 @@ O código acima deve rederizar a seguinte marcação em HTML.
 
 ## Children
 
-Por padrão, o React passa um atributo para todos os elementos chamado `children`. Esse atributo contém os filhos daquela instância do componente definidos na marcação JSX.
+Por padrão, o React passa um atributo para todos os elementos chamado
+`children`. Esse atributo contém os filhos daquela instância do componente
+definidos na marcação JSX.
 
 ```jsx
 function Button(props) {
@@ -83,7 +94,8 @@ function App() {
 }
 ```
 
-Para o primeiro botão, `props.children` conterá um elemento de texto com o valor "Prosseguir", e para o segundo botão, o valor será "Cancelar".
+Para o primeiro botão, `props.children` conterá um elemento de texto com o valor
+"Prosseguir", e para o segundo botão, o valor será "Cancelar".
 
 ## Eventos
 
@@ -141,14 +153,15 @@ React para lidar com estado, ciclo de vida e outras coisa dentro de funções.
 
 ### useState
 
-`useState` é uma função que recebe um estado inicial, e retorna um array
+O hook `useState` é uma função que recebe um estado inicial, e retorna um array
 contendo o valor atual desse estado e uma função helper, que permite alterar
-esse estado. Precisamos dessa função porque o estado no React é _imutável_. Esse
-hook permite guardar de forma simples um valor dentro de um componente React.
+esse estado. Precisamos dessa função helper porque o estado no React é
+_imutável_. Esse hook permite guardar de forma simples um valor dentro de um
+componente React.
 
 ```jsx
 function Counter() {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = React.useState(0);
 
   function handleClick() {
     setCounter(counter + 1); // agora vai 😄
@@ -162,3 +175,54 @@ function Counter() {
   );
 }
 ```
+
+### useEffect
+
+Funções também não tem ciclo de vida, ou seja, não sabemos se um componente está
+sendo renderizado pela primeira vez ou pela décima. O hook `useEffect` nos
+possibilita registrar uma função para rodar a cada update do componente. Um
+update ocorre toda vez que uma de suas dependências, uma prop ou um estado por
+exemplo, é alterado.
+
+```jsx
+function Counter() {
+  const [name, setName] = React.useState("");
+
+  useEffect(() => {
+    console.log(name); // executa toda vez que name mudar
+  });
+
+  const handleChange = (event) => {
+    setName(event.target.value);
+  };
+
+  return (
+    <div>
+      <input name="name" onChange={handleChange} />
+    </div>
+  );
+}
+```
+
+O hook `useEffect` espera dois argumentos, uma função para ser registrada, e um
+array de dependências opcional. A cada update o `useEffect` checa o valor de
+suas dependências, e execute a função registrada caso algum tenha mudado. Por
+via de regra, é importante incluir todos os valores do qual seu efeito depende
+no array de dependências.
+
+```jsx
+  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+
+  useEffect(() => {
+    setFirstName(name.split(" ")[0]);
+  }, [name]);
+}
+```
+
+No exemplo acima, o efeito só irá executar quando name tiver seu valor alterado.
+Isso é útil para evitar loops infinitos, já que a chamada de `setFirstName`
+causará um update no componente.
+
+> Podemos usar um array de dependências vazio para indicar que o efeito deve ser
+> executado apenas na primeira vez que o componente for montado na tela.
