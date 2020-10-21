@@ -4,6 +4,22 @@ React é um framework para desenvolvimento de aplicações web e nativas. Seu fo
 é em facilitar para o desenvolvedor criar interfaces interativas sem se
 preocupar com o código que orquestra essas interações.
 
+## Projeto React
+
+É possível iniciar um projeto React usando o [Create React App](https://create-react-app.dev/) ou usando o [CodeSandbox](https://codesandbox.io).
+
+Para iniciar um novo projeto React na pasta _projeto_, basta usar o comando
+
+```bash
+yarn create react-app projeto
+```
+
+ou
+
+```bash
+npx create-react-app projeto
+```
+
 ## JSX
 
 É uma sintaxe para o JavaScript que permite descrever a nossa interface junto da
