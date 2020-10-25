@@ -30,7 +30,7 @@ HTML, dentro do nosso código JavaScript.
 const element = <h1>Olá Mundo</h1>;
 ```
 
-Quando rodamos nossa aplicação React, um renderer, como o ReactDOM, trata de
+Quando rodamos nossa aplicação React, um _renderer_, como o ReactDOM, trata de
 avaliar nossos elementos e colocá-los na tela.
 
 ## Expressões

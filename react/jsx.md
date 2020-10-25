@@ -1,8 +1,19 @@
+> 🚧 Seção em construção
+
 # JSX
 
 > Por anos tentamos separar UI de lógica. Aí chegou o JSX e nos provou errados.
 >
-> - comentário aleatório no HN.
+> _comentário aleatório no HN_
+
+## Referências
+
+- [Introduzindo JSX](https://pt-br.reactjs.org/docs/introducing-jsx.html)
+- [Renderização Condicional](https://pt-br.reactjs.org/docs/conditional-rendering.html)
+- [Listas e Chaves](https://pt-br.reactjs.org/docs/lists-and-keys.html)
+- [**JSX detalhado**](https://pt-br.reactjs.org/docs/jsx-in-depth.html)
+
+## Intrudução
 
 JSX é uma extensão do JavaScript que nos permite descrever a nossa UI dentro dos
 nossos componentes.
@@ -35,11 +46,12 @@ console.log(elemento);
 }
 ```
 
-Como podemos ver, um _elemento_ é só um objeto com coisas que não sabemos pra que
-serve. Tipo um ...
+Baseado na saída do log, um _elemento_ é só um objeto com coisas que não sabemos
+pra que serve.
 
 Mas há algumas chaves nesse objeto que importam pra gente. Como podemos
-observar, `type` tem o mesmo valor que a nossa tag: `h1`. E olha onde nosso `Olá Mundo` foi parar. Dentro da chave `props`, como valor de `children`.
+observar, `type` tem o mesmo valor que a nossa tag: `h1`. E olha onde nosso `Olá Mundo`
+foi parar: dentro da chave `props` como valor de `children`.
 
 ## Expressões
 
@@ -111,8 +123,17 @@ JavaScript, porém, podemos usar este operador como um [operador de curto
 circuito](https://pt.wikipedia.org/wiki/Avalia%C3%A7%C3%A3o_de_curto-circuito).
 
 ```jsx
-
+const BemVindo = (props) => {
+  return <h1>Bem Vindo {props.visits > 1 && <span>novamente</span>}</h1>;
+};
 ```
+
+No exemplo acima, `<span>novamente</span` só será avaliado se `props.visits` for
+maior que 1. Lembre-se que isso é uma propriedade do JavaScript e não do React.
+
+#### O operador ternário
+
+Em breve...
 
 > 💡 Para entender mais sobre renderização condicional, veja o [artigo
 > principal](https://pt-br.reactjs.org/docs/conditional-rendering.html) na
