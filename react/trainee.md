@@ -30,6 +30,9 @@ HTML, dentro do nosso código JavaScript.
 const element = <h1>Olá Mundo</h1>;
 ```
 
+Quando rodamos nossa aplicação React, um renderer, como o ReactDOM, trata de
+avaliar nossos elementos e colocá-los na tela.
+
 ## Expressões
 
 Podemos inserir qualquer [expressão
@@ -66,13 +69,24 @@ function Componente() {
 ```
 
 Para usar componentes que definimos, basta colocá-lo entre bicudinhos `<>`, com
-o mesmo nome da função que o define.
+o mesmo nome da função que os define.
 
 ```jsx
 function App() {
   return <Componente></Componente>;
 }
 ```
+
+## Renderização
+
+Componentes também são elementos. Isso quer dizer que quando nossa aplicação
+React é executada, um _renderer_ irá executar nossos componentes para colocá-los
+na tela. Chamamos o processo de execução dos nossos componentes para obter o JSX
+final de **renderização**.
+
+> Não confunda renderização com mostrar na tela. Quando o React renderiza os
+> componentes, apenas os transforma em objetos que serão mais tarde colocados na
+> tela pelo browser, ou outro host, num processo chamdo de _pintura_.
 
 ## Props
 
