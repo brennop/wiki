@@ -198,8 +198,8 @@ O exemplo acima faz uma mutação no object `document`. Isso é considerado um
 efeito colateral, e da forma que escrevemos pode gerar inconsistências e
 resultados inesperados.
 
-Para executarmos efeitos, precisamos do hook `useEffect`. Ele nos permite
-executar um código imperativo após cada renderização.
+Para executarmos efeitos, precisamos do hook `useEffect`. Esse hook nos permite
+executar um código imperativo _após cada renderização_.
 
 ```jsx
 function Component() {
