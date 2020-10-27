@@ -4,6 +4,13 @@ React é um framework para desenvolvimento de aplicações web e nativas. Seu fo
 é em facilitar para o desenvolvedor criar interfaces interativas sem se
 preocupar com o código que orquestra essas interações.
 
+## Referências
+
+- [Documentação do React (em pt-br)](https://pt-br.reactjs.org/docs/getting-started.html)
+- [Cheatsheet do React (NOVO) 🔝](https://dev.to/codeartistryio/the-react-cheatsheet-for-2020-real-world-examples-4hgg)
+- [Curso do freecodecamp](https://www.freecodecamp.org/learn/front-end-libraries/react/)
+- [Documentação com foco em hooks (em inglês)](https://reactwithhooks.netlify.app/)
+
 ## Projeto React
 
 É possível iniciar um projeto React usando o [Create React App](https://create-react-app.dev/) ou usando o [CodeSandbox](https://codesandbox.io).
