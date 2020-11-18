@@ -344,10 +344,10 @@ Os hooks podem ser configurados no `package.json`.
 
 "lint-staged": {
   "*.js": [
+    "eslint --cache --fix --max-warnings=0",
     "yarn test --findRelatedTests --watch=false --bail",
-    "prettier --write",
-    "git add"
-  ]
+  ],
+ "*.js": "eslint --cache --fix --max-warnings=0",
 }
 ```
 
