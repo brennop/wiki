@@ -162,11 +162,11 @@ O objetivo do code review é garantir o a qualidade da base
 de códigos. Ambos GitLab e o GitHub oferecem ferramentas
 para facilitar o code review.
 
-### Porque fazer code review?
+### Por que fazer code review?
 
 - Reduz a quantidades de bugs que são introduzidos na sua base de código.
 - Melhora o seu modelo de como o projeto está estruturado.
-- Cira a oportunidade de aprender coisas novas.
+- Cria a oportunidade de aprender coisas novas.
 
 ### Merge Request/Pull Request
 
