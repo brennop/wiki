@@ -1,5 +1,7 @@
 # Guia do Mantenedor
 
+![](https://imgs.xkcd.com/comics/git.png)
+
 ## Das responsibilidades
 
 - Manter a estrutura do projeto organizada
