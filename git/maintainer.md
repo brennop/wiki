@@ -230,7 +230,7 @@ o processor.
 
 Algumas vezes mudanças de baixa qualidade, com código ruim
 ou mal formatado podem aparecer. Nesses casos é importante
-comunicar com o desenvolvedor que são necessárias alterções.
+comunicar com o desenvolvedor que são necessárias alterações.
 
 Se a requisição não chegar ao nível necessário de qualidade
 do projeto, deve-se recusar a requisição.
@@ -243,7 +243,7 @@ do projeto, deve-se recusar a requisição.
 >
 > ❌ Você deve fazer da seguinte forma
 
-> ✅ Notei que esse efeito pode acontecer com o seu cógido
+> ✅ Notei que esse efeito pode acontecer com o seu código
 >
 > ✅ O que você acha de fazer da seguinte forma
 
