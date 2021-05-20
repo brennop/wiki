@@ -179,7 +179,7 @@ Verifique a disponibilidade do PostgreSQL na sua distribuição. No Ubuntu/Debia
 
 ```bash
 sudo apt update
-sudo apt install postgresql postgresql-contrib
+sudo apt install postgresql postgresql-contrib libpq-dev
 ```
 
 #### macOS
